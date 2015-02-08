@@ -38,7 +38,7 @@ Picard / Samtools API, you need to specify your reference so that CRAM files can
 decoded. This is done using a Java system property. Thus to launch IGV with CRAM 
 capability, you must specify your reference like so:
 
-    java -Dreference=&lt;your reference.fasta&gt;  -Xmx1g -jar igv.jar &
+    java -Dreference=<your reference.fasta>  -Xmx1g -jar igv.jar &
 
 
 Loading CRAM Files
@@ -48,7 +48,7 @@ CRAM files need to be indexed to be read. Although there is a CRAM specific inde
 format (.crai), the Java CRAM libraries do not read this. So you actually need to create
 a ".bai" reference for your CRAM files. This is done using cramtools like so:
 
-    java -Xmx1g -jar ./lib/cramtools-2.1.jar  index  -R &lt;your reference&gt;.fasta  -l INFO --bam-style-index -I file.cram
+    java -Xmx1g -jar ./lib/cramtools-2.1.jar  index  -R <your reference.fasta>  -l INFO --bam-style-index -I file.cram
 
 Note in the above, the reference is supplied (this may not be necessary for indexing) and 
 the --bam-style-index flag makes a ".bai" file instead of a ".crai".
