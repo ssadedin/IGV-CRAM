@@ -15,7 +15,7 @@ not support CRAM yet. Support is coming soon, but is not there yet. This fork of
 intended purely as a **short term** workaround for those needing CRAM support **right now**.
 
 This is a totally unofficial fork, and will not be maintained. It has not been created in a
-a way that is conducive to on-going tracking of the main branch of IGV and will be deleted
+way that is conducive to on-going tracking of the main branch of IGV and will be deleted
 as soon as IGV itself supports CRAM.
 
 Building
