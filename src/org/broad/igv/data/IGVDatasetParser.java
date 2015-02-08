@@ -12,7 +12,7 @@ package org.broad.igv.data;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import htsjdk.samtools.seekablestream.SeekableStream;
+import net.sf.samtools.seekablestream.SeekableStream;
 import org.apache.log4j.Logger;
 import org.broad.igv.Globals;
 import org.broad.igv.exceptions.ParserException;

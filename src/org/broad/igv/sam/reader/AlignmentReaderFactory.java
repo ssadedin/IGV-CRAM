@@ -10,10 +10,10 @@
  */
 package org.broad.igv.sam.reader;
 
-import htsjdk.samtools.SAMFileHeader;
-import htsjdk.samtools.SAMFileReader;
-import htsjdk.samtools.SAMReadGroupRecord;
-import htsjdk.samtools.ValidationStringency;
+import net.sf.samtools.SAMFileHeader;
+import net.sf.samtools.SAMFileReader;
+import net.sf.samtools.SAMReadGroupRecord;
+import net.sf.samtools.SAMFileReader.ValidationStringency;
 import org.apache.log4j.Logger;
 import org.broad.igv.exceptions.DataLoadException;
 import org.broad.igv.ga4gh.Ga4ghAPIHelper;
@@ -71,7 +71,7 @@ public class AlignmentReaderFactory {
                 || typeString.endsWith("psl")
                 || typeString.endsWith("pslx")) {
             reader = new GeraldReader(samFile, requireIndex);
-        } else if (typeString.endsWith(".bam")) {
+        } else if (typeString.endsWith(".bam") || typeString.endsWith(".cram")) {
             if (locator.isLocal()) {
                 reader = new BAMFileReader(new File(samFile));
             } else {

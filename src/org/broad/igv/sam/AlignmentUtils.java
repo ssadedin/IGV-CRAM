@@ -178,8 +178,8 @@ public class AlignmentUtils {
      * @return reverse complement
      */
     public static String reverseComplement(final String sequenceData) {
-        final byte[] bases = htsjdk.samtools.util.StringUtil.stringToBytes(sequenceData);
+        final byte[] bases = net.sf.samtools.util.StringUtil.stringToBytes(sequenceData);
         reverseComplement(bases);
-        return htsjdk.samtools.util.StringUtil.bytesToString(bases);
+        return net.sf.samtools.util.StringUtil.bytesToString(bases);
     }
 }

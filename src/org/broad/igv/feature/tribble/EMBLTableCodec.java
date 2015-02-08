@@ -1,6 +1,5 @@
 package org.broad.igv.feature.tribble;
 
-import htsjdk.samtools.util.LocationAware;
 import org.apache.log4j.Logger;
 import org.broad.igv.feature.BasicFeature;
 import org.broad.igv.feature.Exon;
@@ -15,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import htsjdk.samtools.util.LocationAware;
 
 /**
  * @author jrobinso

@@ -12,8 +12,9 @@
 package org.broad.igv.sam.reader;
 
 import htsjdk.samtools.SamFileHeaderMerger;
-import htsjdk.samtools.SAMFileHeader;
-import htsjdk.samtools.util.CloseableIterator;
+//import htsjdk.samtools.SAMFileHeader;
+import net.sf.samtools.SAMFileHeader;
+import net.sf.samtools.util.CloseableIterator;
 import org.apache.log4j.Logger;
 import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.feature.genome.GenomeManager;
@@ -111,14 +112,17 @@ public class MergedAlignmentReader implements AlignmentReader {
                 sortOrder = curHeader.getSortOrder();
             }
         }
+        
+        /*
         if(sortOrder != null){
             SamFileHeaderMerger headerMerger = new SamFileHeaderMerger(sortOrder, headersList, true);
             return headerMerger.getMergedHeader();
         }
+        */
 
         return null;
     }
-
+    
     public boolean hasIndex() {
         return readers.iterator().next().hasIndex();
     }

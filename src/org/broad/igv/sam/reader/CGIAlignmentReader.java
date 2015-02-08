@@ -11,10 +11,12 @@
 
 package org.broad.igv.sam.reader;
 
-import htsjdk.samtools.*;
-import htsjdk.samtools.util.BufferedLineReader;
-import htsjdk.samtools.util.CloseableIterator;
-import htsjdk.samtools.util.LineReader;
+import net.sf.samtools.*;
+import net.sf.samtools.SAMFileReader.ValidationStringency;
+import net.sf.samtools.util.BufferedLineReader;
+import net.sf.samtools.util.CloseableIterator;
+import net.sf.samtools.util.LineReader;
+
 import org.apache.log4j.Logger;
 import org.broad.igv.Globals;
 import org.broad.igv.sam.Alignment;

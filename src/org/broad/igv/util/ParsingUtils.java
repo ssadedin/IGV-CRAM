@@ -10,8 +10,8 @@
  */
 package org.broad.igv.util;
 
-import htsjdk.samtools.util.ftp.FTPClient;
-import htsjdk.samtools.util.ftp.FTPReply;
+import net.sf.samtools.util.ftp.FTPClient;
+import net.sf.samtools.util.ftp.FTPReply;
 import org.broad.igv.util.ftp.FTPUtils;
 import org.apache.log4j.Logger;
 import org.broad.igv.Globals;

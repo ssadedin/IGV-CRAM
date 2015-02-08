@@ -11,8 +11,8 @@
 
 package org.broad.igv.sam;
 
-import htsjdk.samtools.*;
-import htsjdk.samtools.util.CloseableIterator;
+import net.sf.samtools.*;
+import net.sf.samtools.util.CloseableIterator;
 import org.broad.igv.feature.Range;
 import org.broad.igv.sam.reader.AlignmentReader;
 import org.broad.igv.sam.reader.AlignmentReaderFactory;

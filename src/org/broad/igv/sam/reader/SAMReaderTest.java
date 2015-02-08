@@ -19,10 +19,13 @@ package org.broad.igv.sam.reader;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import htsjdk.samtools.*;
-import htsjdk.samtools.util.CloseableIterator;
+import net.sf.samtools.*;
+import net.sf.samtools.SAMFileReader.ValidationStringency;
+import net.sf.samtools.util.CloseableIterator;
+
 import org.broad.igv.sam.Alignment;
 import org.broad.igv.util.ResourceLocator;
+
 import htsjdk.tribble.readers.AsciiLineReader;
 
 import java.io.*;

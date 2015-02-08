@@ -12,8 +12,8 @@
 package org.broad.igv.tools.sort;
 
 import jargs.gnu.CmdLineParser;
-import htsjdk.samtools.util.CloseableIterator;
-import htsjdk.samtools.util.SortingCollection;
+import net.sf.samtools.util.CloseableIterator;
+import net.sf.samtools.util.SortingCollection;
 import org.apache.log4j.Logger;
 import org.broad.igv.feature.genome.ChromosomeNameComparator;
 import org.broad.igv.feature.tribble.MUTCodec;

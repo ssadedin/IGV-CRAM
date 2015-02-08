@@ -12,7 +12,7 @@
 package org.broad.igv.sam.reader;
 
 import picard.sam.BuildBamIndex;
-import htsjdk.samtools.SAMFileReader;
+import net.sf.samtools.SAMFileReader;
 import org.broad.igv.ui.util.IndexCreatorDialog;
 
 import javax.swing.*;

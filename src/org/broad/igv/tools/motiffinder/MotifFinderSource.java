@@ -12,7 +12,7 @@
 package org.broad.igv.tools.motiffinder;
 
 import com.google.common.collect.Iterators;
-import htsjdk.samtools.util.SequenceUtil;
+import net.sf.samtools.util.SequenceUtil;
 import org.broad.igv.feature.BasicFeature;
 import org.broad.igv.feature.IGVFeature;
 import org.broad.igv.feature.LocusScore;

@@ -86,6 +86,29 @@
                 <exclude name="**/*AppleJavaExtensions.jar"/>
             </fileset>
         </unzip>
+
+        <!-- Make sure the new picard,sam override anything in other libs -->
+        <unzip dest="${tmp.dir}">
+            <patternset>
+                <exclude name="META-INF/**"/>
+            </patternset>
+            <fileset dir="${lib.dir}">
+                <include name="picard-1.103.jar"/>
+                <include name="sam-1.103.jar"/>
+            </fileset>
+        </unzip>
+
+        <!-- Make sure the cramtools overrides anything in other libs -->
+        <unzip dest="${tmp.dir}">
+            <patternset>
+                <exclude name="META-INF/**"/>
+            </patternset>
+            <fileset dir="${lib.dir}">
+                <include name="cramtools-2.1.jar"/>
+            </fileset>
+        </unzip>
+
+
     </target>
 
     <target name="rewrite-log" if="log.level">
@@ -150,10 +173,6 @@
 
 
     <target name="compileTests" if="compile.tests" description="Compile test files to testtmp directory, WITHOUT compiling main source files">
-        <javac srcdir="${testsrc.dir}" debug="on" destdir="${testtmp.dir}" includeantruntime="true"
-               target="${javac.target}" source="${javac.target}" encoding="${java.encoding}" nowarn="${javac.nowarn}">
-            <classpath refid="test.classpath"/>
-        </javac>
     </target>
 
     <macrodef name="build">
@@ -198,7 +217,7 @@
         <build includedFileset="files"/>
     </target>
 
-    <target name="build-all" depends="compile,compileTests" if="act.include.libs"
+    <target name="build-all" depends="compile,compileTests" 
             description="Build the IGV JAR, including libraries, using BCEL to take only required classes">
 
         <classfileset dir="${tmp.dir}" id="files">
@@ -301,33 +320,6 @@
      would simply run IGVToolsTest.
      -->
     <target name="actruntests" depends="compileTests">
-        <delete dir="${test.reports}"/>
-        <mkdir dir="${test.reports}"/>
-
-        <junit haltonfailure="no" showoutput="${show.test.out}" printsummary="on" failureproperty="tests.failed"
-               maxmemory="2000m">
-
-            <jvmarg value="-javaagent:${testlib.dir}/JavaAgent.jar"/>
-            <jvmarg value="-Dfile.encoding=${java.encoding}"/>
-            <jvmarg value="-Dinclude.longrunning=${include.longrunning}"/>
-            <jvmarg value="-Dignore.ioexceptions=${ignore.ioexceptions}"/>
-            <sysproperty key="LARGE_DATA_DIR" value="${LARGE_DATA_DIR}"/>
-            <sysproperty key="MONGO_EXEC_PATH" value="${MONGO_EXEC_PATH}"/>
-            <sysproperty key="make.fail" value="${make.fail}"/>
-
-            <classpath refid="test.classpath"/>
-            <formatter type="xml" usefile="true"/>
-            <batchtest fork="yes" todir="${test.reports}" if="filesetpattern">
-                <fileset dir="${testtmp.dir}">
-                    <include name="**/${filesetpattern}.class"/>
-                    <exclude name="**/*$*.class"/>
-                </fileset>
-            </batchtest>
-            <batchtest fork="yes" todir="${test.reports}" unless="filesetpattern">
-                <fileset refid="${filesetid}"/>
-            </batchtest>
-        </junit>
-
     </target>
 
     <target name="makereports" depends="actruntests">

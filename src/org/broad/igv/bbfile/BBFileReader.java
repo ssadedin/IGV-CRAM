@@ -11,7 +11,7 @@
 
 package org.broad.igv.bbfile;
 
-import htsjdk.samtools.seekablestream.SeekableStream;
+import net.sf.samtools.seekablestream.SeekableStream;
 import org.apache.log4j.Logger;
 import org.broad.igv.util.stream.IGVSeekableBufferedStream;
 import org.broad.igv.util.stream.IGVSeekableStreamFactory;

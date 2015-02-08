@@ -13,8 +13,8 @@ package org.broad.igv.ga4gh;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import htsjdk.samtools.SAMFileHeader;
-import htsjdk.samtools.util.CloseableIterator;
+import net.sf.samtools.SAMFileHeader;
+import net.sf.samtools.util.CloseableIterator;
 import org.apache.log4j.Logger;
 import org.broad.igv.sam.Alignment;
 import org.broad.igv.sam.reader.AlignmentReader;

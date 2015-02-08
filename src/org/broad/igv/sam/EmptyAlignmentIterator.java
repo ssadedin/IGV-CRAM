@@ -15,7 +15,7 @@
  */
 package org.broad.igv.sam;
 
-import htsjdk.samtools.util.CloseableIterator;
+import net.sf.samtools.util.CloseableIterator;
 
 public class EmptyAlignmentIterator implements CloseableIterator<PicardAlignment> {
 

@@ -11,7 +11,7 @@
 
 package org.broad.igv.feature.tribble;
 
-import htsjdk.samtools.util.BlockCompressedInputStream;
+import net.sf.samtools.util.BlockCompressedInputStream;
 import org.apache.log4j.Logger;
 import org.broad.igv.data.cufflinks.FPKMTrackingCodec;
 import org.broad.igv.feature.genome.Genome;

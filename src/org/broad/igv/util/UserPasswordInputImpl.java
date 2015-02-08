@@ -11,7 +11,7 @@
 
 package org.broad.igv.util;
 
-import htsjdk.samtools.seekablestream.UserPasswordInput;
+import net.sf.samtools.seekablestream.UserPasswordInput;
 import org.broad.igv.ui.IGV;
 
 /**

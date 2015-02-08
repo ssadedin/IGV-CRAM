@@ -11,8 +11,12 @@
 
 package org.broad.igv.plugin.mongovariant;
 
-import htsjdk.samtools.SAMSequenceDictionary;
-import htsjdk.samtools.SAMSequenceRecord;
+//import htsjdk.samtools.SAMSequenceDictionary;
+
+import net.sf.samtools.SAMSequenceDictionary;
+
+import net.sf.samtools.SAMSequenceRecord;
+
 import org.apache.log4j.Logger;
 import org.broad.igv.annotations.ForTesting;
 import org.broad.igv.feature.Chromosome;
@@ -137,9 +141,9 @@ public class VariantReviewSource implements FeatureSource<VCFVariant> {
     }
 
     private GenomeLocParser createGenomeLocParser() {
-        SAMSequenceDictionary dict = new SAMSequenceDictionary();
+        htsjdk.samtools.SAMSequenceDictionary dict = new htsjdk.samtools.SAMSequenceDictionary();
         for (Chromosome chr : GenomeManager.getInstance().getCurrentGenome().getChromosomes()) {
-            dict.addSequence(new SAMSequenceRecord(chromoNameToStandard(chr.getName()), chr.getLength()));
+            dict.addSequence(new htsjdk.samtools.SAMSequenceRecord(chromoNameToStandard(chr.getName()), chr.getLength()));
         }
         return new GenomeLocParser(dict);
     }

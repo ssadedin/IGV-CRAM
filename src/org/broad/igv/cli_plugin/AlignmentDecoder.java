@@ -11,8 +11,8 @@
 
 package org.broad.igv.cli_plugin;
 
-import htsjdk.samtools.SAMFileReader;
-import htsjdk.samtools.ValidationStringency;
+import net.sf.samtools.SAMFileReader;
+import net.sf.samtools.SAMFileReader.ValidationStringency;
 import org.broad.igv.sam.PicardAlignment;
 import org.broad.igv.sam.reader.WrappedIterator;
 
