@@ -18,7 +18,44 @@ This is a totally unofficial fork, and will not be maintained. It has not been c
 a way that is conducive to on-going tracking of the main branch of IGV and will be deleted
 as soon as IGV itself supports CRAM.
 
+Building
+--------
+
+You need at least ant 1.9.x.  Copy the libraries in the "ant" folder to your ~/.ant/lib folder. Eg:
+
+    mkdir -p ~/.ant/lib
+    cp ant/*.jar ~/.ant/lib
+
+Then simply run:
+
+    ant -Dinclude.libs=true build-all
+
+Running
+-------
+
+The build will create "igv.jar". The way CRAM support is patched into the legacy
+Picard / Samtools API, you need to specify your reference so that CRAM files can be
+decoded. This is done using a Java system property. Thus to launch IGV with CRAM 
+capability, you must specify your reference like so:
+
+    java -Dreference=&lt;your reference.fasta&gt;  -Xmx1g -jar igv.jar &
+
+
+Loading CRAM Files
+------------------
+
+CRAM files need to be indexed to be read. Although there is a CRAM specific index
+format (.crai), the Java CRAM libraries do not read this. So you actually need to create
+a ".bai" reference for your CRAM files. This is done using cramtools like so:
+
+    java -Xmx1g -jar ./lib/cramtools-2.1.jar  index  -R &lt;your reference&gt;.fasta  -l INFO --bam-style-index -I file.cram
+
+Note in the above, the reference is supplied (this may not be necessary for indexing) and 
+the --bam-style-index flag makes a ".bai" file instead of a ".crai".
+
+
 Problems and Troubleshooting
 ----------------------------
 
-Do **not** contact the IGV mailing list or forum with problems with this build.
+Do **not** contact the IGV mailing list or forum with problems with this build. This build is unofficial and
+they should not be burdened with problems that may be created by my egregious hacking of their code.
