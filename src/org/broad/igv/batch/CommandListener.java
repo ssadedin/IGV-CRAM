@@ -405,11 +405,34 @@ public class CommandListener implements Runnable {
                 boolean cmdExeWillDecode = (fileParams.contains(key) || indexParams.contains(key)) && CommandExecutor.needsDecode(kv[1]);
 
                 String value = cmdExeWillDecode ? kv[1] : StringUtils.decodeURL(kv[1]);
+                
+                value = remapPath(value);
+                
                 params.put(kv[0], value);
             }
         }
         return params;
 
+    }
+
+
+    /**
+     * If a system property is set in the form igv.pathRemapSpec=/foo:/bar, use that property 
+     * to remap incoming paths to new values.
+     * 
+     * @param value raw value
+     * @return  remapped value
+     */
+    private String remapPath(String value) {
+        String remapSpec = System.getProperty("igv.pathRemapSpec");
+        if(remapSpec != null) {
+            String [] remapPrefixParts = remapSpec.split(":");
+            if(value.startsWith(remapPrefixParts[0])) {
+                log.info("Remapping path " + value + " due to remap specification set to " + remapSpec);
+                value = value.replaceAll(remapPrefixParts[0],remapPrefixParts[1]);
+            }
+        }
+        return value;
     }
 
 
